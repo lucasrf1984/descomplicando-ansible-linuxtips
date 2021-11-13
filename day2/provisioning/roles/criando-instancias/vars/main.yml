@@ -1,9 +1,9 @@
 ---
 # vars file for criando-instancias
-instance_name: t2.medium
+instance_type: t2.medium
 sec_group_name: giropops
 image: ami-083654bd07b5da81d
-key_pair: descomplicando-ansible-ssh
+keypair: descomplicando-ansible-ssh
 region: us-east-1
 count: 3
 profile: giropops
