@@ -1,2 +1,5 @@
+# cat install_k8s/roles/install-k8s/tasks/main.yml
+
 ---
 # tasks file for install-k8s
+- include: install.yml
