@@ -3,14 +3,14 @@
   user: ubuntu
   gather_facts: no
 
-  pre-tasks:
+  pre_tasks:
   - name: 'Atualizando o repositorio do sistema operacional'
     raw: 'apt-get update -qq'
   - name: 'Instalando o Python'
     raw: 'apt-get install -y python'
   
   roles: 
-  - { - role: install-k8s, tags: ["install-k8s-role"] }
+  - { role: install-k8s, tags: ["install-k8s-role"] }
   
 - hosts: k8s-master
   become: yes
@@ -18,9 +18,15 @@
   roles: 
   - { role: create-cluster, tags: ["create_cluster_role"] }
 
-- hosts: k8s-wokers
+- hosts: k8s-workers
   become: yes
   user: ubuntu
   roles:
   - { role: join-workers, tags: ["join_workers_role"] }
 
+
+- hosts: k8s-cluster 
+  become: yes
+  user: ubuntu
+  roles:
+  - { role: apps, tags: ["install_apps_role"] }

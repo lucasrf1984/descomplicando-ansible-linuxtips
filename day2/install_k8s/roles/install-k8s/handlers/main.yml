@@ -1,2 +1,6 @@
 ---
-# handlers file for install-k8s
+# handlers file for create-cluster
+- name: docker restart
+  systemd:
+    name: docker
+    state: restarted

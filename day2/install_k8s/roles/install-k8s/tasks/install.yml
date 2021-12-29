@@ -1,6 +1,14 @@
 - name: Instalando o Docker
   shell: curl -fsSL https://get.docker.com | bash
 
+- name: Atualizando cgroups do Docker
+  ansible.builtin.copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+    mode: 0644
+  notify: 
+    - docker restart
+
 - name: Adicionando as chaves do repositorio do apt do k8s
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg

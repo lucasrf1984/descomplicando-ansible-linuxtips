@@ -6,4 +6,4 @@ image: ami-083654bd07b5da81d
 keypair: descomplicando-ansible-ssh
 region: us-east-1
 count: 3
-profile: giropops
+profile: default 
