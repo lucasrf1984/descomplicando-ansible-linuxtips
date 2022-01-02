@@ -1,0 +1,31 @@
+- name: Instalando o modulo pip do python e python 3.6
+  apt: 
+    name: ['python3.6', 'python-pip']
+    state: present
+    update_cache: yes
+
+- name: Instalando dependencias de python
+  pip:
+    name:
+      - PyYAML
+      - jsonpatch
+
+- name: Copiando o arquivo de deployment da app v1 para o host
+   template:
+     src: app-v1.yml.j2
+     dest: /opt/giropops/app-v1.yml
+     owner: root
+     group: root
+     mode: 0644
+   register: copiando_template 
+
+- name: Copiando o arquivo de deployment da app v2 para o host
+   template:
+     src: app-v2.yml.j2
+     dest: /opt/giropops/app-v2.yml
+     owner: root
+     group: root
+     mode: 0644
+   register: copiando_template 
+
+
