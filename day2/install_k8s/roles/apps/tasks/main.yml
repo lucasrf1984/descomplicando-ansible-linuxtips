@@ -1,24 +1,5 @@
 ---
 # tasks file for apps
-- name: Adicionando a key do repositorio do helm
-  apt_key:
-    url: https://baltocdn.com/helm/signing.asc 
-    state: present
-
-- name: Instalando dependencia do Helm
-  apt:
-    name: apt-transport-https
-    state: present
-
-- name: Adicionando repositorio do Helm
-  apt_repository:
-    repo: deb https://baltocdn.com/helm/stable/debian/ all main
-    state: present
-
-- name: Instalando o Helm
-  apt:
-    name: helm
-    state: present
-    update_cache: yes
-
+- import_tasks: install_helm.yml
+- import_tasks: install_monit_tools.yml
 

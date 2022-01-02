@@ -1,2 +1,5 @@
 ---
 # vars file for apps
+deploy_prometheus: "--set prometheusOperator.createCustomResource=false meu-querido-prometheus stable/prometheus-operator"
+url_repo_helm: https://kubernetes-charts.storage.googleapis.com
+
